@@ -32,7 +32,7 @@ BACKUP REGISTRY BEFORE UNINSTALLATION.
 ```
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shell\fernweh.jp.CopyAsPath
 ```
-![](c-c2.png)
+![](c-c2.png)<br/>
 2. Delete directory "%LocalAppData%/fernweh.jp/c-c/"
 ```
 rmdir /S "%LocalAppData%/fernweh.jp/c-c/"
