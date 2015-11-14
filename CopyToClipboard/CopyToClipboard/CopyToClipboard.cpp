@@ -21,7 +21,11 @@ int WINAPI WinMain(
 	memcpy(pBuf, lpCmdLine, length * sizeof(char));
 
 	GlobalUnlock(pBuf);
-	if (!OpenClipboard(NULL)) return 3;
+	if (!OpenClipboard(NULL))
+	{
+		GlobalFree(_pBuf);
+		return 3;
+	}
 	EmptyClipboard();
 	SetClipboardData(CF_TEXT, pBuf);
 	CloseClipboard();
