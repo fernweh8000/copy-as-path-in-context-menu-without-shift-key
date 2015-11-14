@@ -18,7 +18,7 @@ int WINAPI WinMain(
 		return 4;
 	}
 
-	strcpy(pBuf, lpCmdLine);
+	memcpy(pBuf, lpCmdLine, length * sizeof(char));
 
 	GlobalUnlock(pBuf);
 	if (!OpenClipboard(NULL)) return 3;
