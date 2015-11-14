@@ -7,12 +7,16 @@ int WINAPI WinMain(
 	int nCmdShow)
 {
 	if (!lpCmdLine) return 1;
-  auto length = strlen(lpCmdLine);
-  if (!length) return 2;
-  auto _pBuf = GlobalAlloc(GMEM_SHARE | GMEM_MOVEABLE, (length + 1) * sizeof(char));
+	auto length = strlen(lpCmdLine);
+	if (!length) return 2;
+	auto _pBuf = GlobalAlloc(GMEM_SHARE | GMEM_MOVEABLE, (length + 1) * sizeof(char));
 	if (!_pBuf) return 3;
 	auto pBuf = (TCHAR *)GlobalLock(_pBuf);
-	if (!pBuf) return 4;
+	if (!pBuf)
+	{
+		GlobalFree(_pBuf);
+		return 4;
+	}
 
 	strcpy(pBuf, lpCmdLine);
 
