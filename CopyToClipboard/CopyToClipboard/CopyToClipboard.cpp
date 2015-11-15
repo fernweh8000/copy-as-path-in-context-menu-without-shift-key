@@ -18,6 +18,7 @@ int WINAPI WinMain(
 		return 4;
 	}
 
+	pBuf[length * sizeof(char)] = '\0';
 	memcpy(pBuf, lpCmdLine, length * sizeof(char));
 
 	GlobalUnlock(pBuf);
